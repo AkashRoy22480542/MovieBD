@@ -1,14 +1,11 @@
 <?php
 session_start();
-$username = $_SESSION['username'];
+//$username = $_SESSION['username'];
 if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
     $key = 'Login';
 }else{
     $key = 'Profile';
 }
-
-
-
 ?>
 
 
@@ -59,7 +56,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
 <div class="main-content">
   
   <div class="filters">
-    <h3>Genres</h3>
+    <h3>Category</h3>
     <label><input type="checkbox" value="Action"> Action</label>
     <label><input type="checkbox" value="Adventure"> Adventure</label>
     <label><input type="checkbox" value="Animation"> Animation</label>

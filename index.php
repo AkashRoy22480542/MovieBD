@@ -1,6 +1,6 @@
 <?php
 session_start();
-$username = $_SESSION['username'];
+//$username = $_SESSION['username'];
 if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
     $key = 'Login';
 }else{
@@ -60,7 +60,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
     <p>Millions of movies, TV shows, and people to discover. Explore now.</p>
 
     <div class="search-box" style="position: relative;">
-        <input type="text" id="search-box" placeholder="Search for a movie, tv show" >
+        <input type="text" id="search-box" placeholder="Search for a movie, tv show" autocomplete="off">
     </div>
 
     <p id="searcherror"></p>

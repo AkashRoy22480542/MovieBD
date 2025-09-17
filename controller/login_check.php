@@ -1,7 +1,6 @@
 <?php
 session_start();
-require_once('../model/userModel.php');
-require_once('../model/adminModel.php');
+
 
 $_SESSION['status'] = false;
 $_SESSION['loginError'] = '';
