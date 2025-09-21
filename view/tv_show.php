@@ -6,9 +6,32 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
 }else{
     $key = 'Profile';
 }
+
+
+
 ?>
 
+<script>
+let allTvShows = [];
+  const xhttp = new XMLHttpRequest();
+  xhttp.open('POST', '../controller/allTvShow.php', true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState === 4 && this.status === 200) {
+      let tv = JSON.parse(this.responseText);
+      allTvShows = tv.all_tv_show;
+      loadTvShows(allTvShows);
+    }
 
+
+  document.getElementById('searchInput').addEventListener('input', () => {
+    applyFiltersTv(allTvShows);
+  });
+};
+
+
+</script>
 
 
 <!DOCTYPE html>
@@ -17,7 +40,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
   <meta charset="UTF-8">
   <title>TV show</title>
   <link rel="stylesheet" href="../assets/movie.css">
-  <!-- <link rel="stylesheet" href="../assets/navbar.css"> -->
+  <link rel="stylesheet" href="../assets/navbar.css">
   <script src="../assets/index.js"></script>
 </head>
 <body >
@@ -56,7 +79,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
 <div class="main-content">
   
   <div class="filters">
-    <h3>Category</h3>
+    <h3>Genres</h3>
     <label><input type="checkbox" value="Action"> Action</label>
     <label><input type="checkbox" value="Adventure"> Adventure</label>
     <label><input type="checkbox" value="Animation"> Animation</label>

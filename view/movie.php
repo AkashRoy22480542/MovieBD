@@ -9,7 +9,25 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
 
 ?>
 
+<script>
+let allMovies = [];
+let xhttp = new XMLHttpRequest();
+xhttp.open('POST', '../controller/allMovie.php', true);
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhttp.send();
+xhttp.onreadystatechange = function () {
+    if (this.readyState === 4 && this.status === 200) {
+        let movies = JSON.parse(this.responseText);
+        allMovies = movies.all_movies;
+        loadMovies(allMovies);
+    }
 
+    document.getElementById('searchInput').addEventListener('input', () => {
+    applyFilters(allMovies);
+  });
+};
+
+</script>
 
 <!DOCTYPE html>
 <html>
@@ -17,7 +35,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
   <meta charset="UTF-8">
   <title>Movies</title>
   <link rel="stylesheet" href="../assets/movie.css">
-  <!-- <link rel="stylesheet" href="../assets/navbar.css"> -->
+  <link rel="stylesheet" href="../assets/navbar.css">
   <script src="../assets/index.js"></script>
 </head>
 <body>
@@ -58,7 +76,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
 <div class="main-content">
   
   <div class="filters">
-    <h3>Categories</h3>
+    <h3>Genres</h3>
     <label><input type="checkbox" value="Action"> Action</label>
     <label><input type="checkbox" value="Adventure"> Adventure</label>
     <label><input type="checkbox" value="Animation"> Animation</label>
@@ -75,7 +93,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
     <input type="date" id="fromDate">
     <input type="date" id="toDate">
 
-    <button onclick="">Apply Filter</button>
+    <button onclick="applyFilters(allMovies)">Apply Filter</button>
   </div>
 
   <div class="movies-grid" id="moviesGrid">

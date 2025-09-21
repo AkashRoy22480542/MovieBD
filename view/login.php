@@ -26,14 +26,14 @@ session_start();
             <td colspan="2"><label>Email</label></td>
           </tr>
           <tr>
-             <td ><input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="new-password"/></td>
+             <td ><input type="email" id="email" name="email" placeholder="you@example.com"/></td>
           </tr>
           <tr>
             <td colspan="2"><label>Password</label></td>
           </tr>
           <tr>
                 <td colspan="2">
-                        <input type="password" id="password" name="password" placeholder="at least 8 characters" autocomplete="new-password" />
+                        <input type="password" id="password" name="password" placeholder="at least 8 characters" />
                 </td>
           </tr>
         </table>

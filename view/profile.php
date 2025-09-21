@@ -57,7 +57,7 @@ if($_SESSION['called']){
         <input type="text" id="phone" name="phone" value="<?= $phone ?>" readonly/>
       </div>
 
-      <button type="button" id="toggleBtn" >Edit</button>
+      <button type="button" id="toggleBtn" onclick="toggleEdit()">Edit</button>
     </form>
   </div>
 </body>

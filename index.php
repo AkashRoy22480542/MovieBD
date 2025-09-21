@@ -19,8 +19,8 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
     <meta charset="UTF-8">
     <title>Movie Landing Page</title>
     <link rel="stylesheet" href="assets/style.css">
-    <!-- <link rel="stylesheet" href="assets/navbar.css"> -->
-    <!-- <link rel="stylesheet" href="assets/search.css"> -->
+    <link rel="stylesheet" href="assets/navbar.css">
+    <link rel="stylesheet" href="assets/search.css">
     <script src="assets/index.js"></script>
 
 </head>
@@ -60,7 +60,8 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
     <p>Millions of movies, TV shows, and people to discover. Explore now.</p>
 
     <div class="search-box" style="position: relative;">
-        <input type="text" id="search-box" placeholder="Search for a movie, tv show" autocomplete="off">
+        <input type="text" id="search-box" placeholder="Search for a movie, tv show" >
+        <!-- <div id="live-suggestions" class="suggestions-dropdown"></div> -->
     </div>
 
     <p id="searcherror"></p>
@@ -98,6 +99,43 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
         </div>
     </footer> 
 
+
+
+    <script>
+                let xhttp = new XMLHttpRequest();
+                xhttp.open('POST', 'controller/allMovie.php', true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        let movies = JSON.parse(this.responseText);
+                        const trending = movies.trending;
+                        displayTrendingMovies(trending);
+                        console.log(trending);
+                    }
+                };
+
+
+                const xhttp1 = new XMLHttpRequest();
+                xhttp1.open('POST', 'controller/allTvShow.php', true);
+                xhttp1.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp1.send();
+
+                xhttp1.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                    const tvList = JSON.parse(this.responseText);
+                    const trending = tvList.trending;
+                    displayTrendingTVShows(trending);
+                    }
+                };
+
+
+
+
+
+
+
+    </script>
 
 </body>
 
