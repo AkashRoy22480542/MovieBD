@@ -1,6 +1,7 @@
 <?php
 require_once('db.php');
 
+// Admin login function
 function loginAdmin($admin) {
     $con = getConnection();
     $email = mysqli_real_escape_string($con, $admin['email']);
@@ -17,6 +18,7 @@ function loginAdmin($admin) {
     return false;
 }
 
+// Get admin by email
 function getAdminByEmail($email) {
     $con = getConnection();
     $email = mysqli_real_escape_string($con, $email);
@@ -27,6 +29,7 @@ function getAdminByEmail($email) {
     return ($result && mysqli_num_rows($result) === 1) ? mysqli_fetch_assoc($result) : null;
 }
 
+// Get all admins
 function getAllAdmins() {
     $con = getConnection();
     $sql = "SELECT * FROM admins";
@@ -39,20 +42,24 @@ function getAllAdmins() {
     return $admins;
 }
 
+// Add new admin
 function addAdmin($admin) {
     $con = getConnection();
     $a = $admin[0];
 
-    $name = mysqli_real_escape_string($con, $a['name']);
+    $name = mysqli_real_escape_string($con, $a['full_name']);
     $email = mysqli_real_escape_string($con, $a['email']);
     $password = password_hash($a['password'], PASSWORD_DEFAULT);
+    $role = mysqli_real_escape_string($con, $a['role']);
+    $permissions = json_encode($a['permissions']); // Assuming permissions is an array
 
-    $sql = "INSERT INTO admins (name, email, password) 
-            VALUES ('$name', '$email', '$password')";
+    $sql = "INSERT INTO admins (full_name, email, password, role, permissions) 
+            VALUES ('$name', '$email', '$password', '$role', '$permissions')";
 
     return mysqli_query($con, $sql);
 }
 
+// Delete admin
 function deleteAdmin($id) {
     $con = getConnection();
     $id = mysqli_real_escape_string($con, $id);
@@ -61,6 +68,7 @@ function deleteAdmin($id) {
     return mysqli_query($con, $sql);
 }
 
+// Check if email exists
 function emailExistsAdmin($email) {
     $con = getConnection();
     $email = mysqli_real_escape_string($con, $email);
@@ -70,5 +78,4 @@ function emailExistsAdmin($email) {
 
     return mysqli_num_rows($result) > 0;
 }
-
 ?>

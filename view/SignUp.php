@@ -1,55 +1,43 @@
 <?php
 session_start();
+
+// Check if user is already logged in
+if (isset($_SESSION['user_email']) || isset($_COOKIE['user_logged_in'])) {
+    header("Location: dashboard.php");
+    exit();
+}
+
+// Check for error message from controller
+$error = isset($_GET['error']) ? $_GET['error'] : '';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Create Account</title>
-  <script src="../assets/index.js"></script>
-  <link rel="stylesheet" href="../assets/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Movie-Box</title>
+  <link rel="stylesheet" href="../assets/sign_up.css">
 </head>
-<body class="signup_body">
-  <div class="signup">
-    <p id="error"><?php
-        if (isset($_SESSION['signup_error'])) {
-            echo $_SESSION['signup_error'];
-            unset($_SESSION['signup_error']);
-        }
-      ?></p>
-    <form onsubmit="return validateSignUpForm()" action="../controller/signupCheck.php" method="POST">
-      <fieldset>
-        <legend>Create Account</legend>
-        <table>
-          <tr>
-            <td><label>Your name</label></td>
-            <td><input type="text" id="name" name="name" placeholder="First and last name" /></td>
-          </tr>
-          <tr>
-            <td><label>Email</label></td>
-            <td><input type="email" id="email" name="email" placeholder="you@example.com"/></td>
-          </tr>
-          <tr>
-            <td><label>Password</label></td>
-            <td>
-              <input type="password" id="password" name="password" placeholder="at least 8 characters" />
-            </td>
-          </tr>
-          <tr>
-            <td><label>Re-enter password</label></td>
-            <td><input type="password" id="repassword" name="repassword"/></td>
-          </tr>
-        </table>
-        <button type="submit">Create your account</button>
-      </fieldset>
-    </form>
-    <div id="navigation_signup">
-      Already have an account? <a href="../view/login.php">Sign in</a>
-    </div>
-  </div>
+<body> 
+     <script src="../assets/login_validation.js"></script>
 
-  <script>
+    <div class="signup-container">
+    <h2>Create Your Movie-Box Account</h2>
     
-  </script>
+    <?php if (!empty($error)): ?>
+        <p style="color: red;"><?php echo htmlspecialchars($error); ?></p>
+    <?php endif; ?>
+    
+    <form action="../controller/signupController.php" method="POST" onsubmit="return validateSignup()">
+      <input type="text" id="fullName" name="full_name" placeholder="Full Name" required>
+      <input type="email" id="signupEmail" name="email" placeholder="Email" required>
+      <input type="password" id="signupPassword" name="password" placeholder="Password" required>
+      <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm Password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+    <p class="login-link">Already have an account? <a href="login.php">Login</a></p>
+
+  </div>
 </body>
 </html>

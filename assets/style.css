@@ -1,674 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@400;500&display=swap');
 
-      
-      /* Login Screen */
+/* Background */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: url("image/back-ground.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
 
+/* Navbar */
+.navbar {
+  background: rgba(0, 0, 0, 0.85);  /* semi-transparent black */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-      .login_body{
-        font-family:Arial;
-        background-color: #ffff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 80vh;
-      }
+/* Logo */
+.logo {
+  font-family: 'Cinzel', serif;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #e50914; /* Netflix red */
+  cursor: pointer;
 
-      .login {
-        width: 350px;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        padding: 30px 25px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-        background-color: #fff;
-      }
+}
 
-      .login fieldset {
-        border: none;
-        padding: 0;
-        margin: 0;
-      }
-      
-      .login legend {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
-        text-align: center;
-      }
-      
-      .login label {
-        font-size: 14px;
-        font-weight: bold;
-        display: block;
-        margin-bottom: 5px;
-      }
-      
-      .login input[type="text"],
-      .login input[type="email"],
-      .login input[type="password"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 18px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-      }
-      
-      .login button {
-        width: 100%;
-        background-color: #f5c518;
-        color: black;
-        padding: 10px;
-        border: none;
-        font-weight: bold;
-        font-size: 14px;
-        border-radius: 20px;
-        cursor: pointer;
-      }
-      
-      .login button:hover {
-        background-color: #e3b30c;
-      }
-      
-      .login #navigation_login {
-        margin-top: 20px;
-        text-align: center;
-        font-size: 14px;
-      }
-      
-      .login #navigation_login a {
-        color: #0073e6;
-        text-decoration: none;
-      }
-      
-      .login #navigation_login a:hover {
-        text-decoration: underline;
-      }
-      
-      .login #error {
-        color: red;
-        font-size: 14px;
-        margin-bottom: 10px;
-        justify-content: center;
-        display: flex;
-      }
-      
-      .login table {
-        width: 100%;
-      }
-      
-      .login td {
-        display: block;
-        width: 100%;
-      }
+/* Menu */
+.menu {
+  display: flex;
+  gap: 40px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #e50914;  /* Red on hover */
+}
+
+/* Classic Cinematic Logo */
+.logo {
+  font-family: 'Cinzel', serif;
+  font-size: 42px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  color: #e50914;   /* Netflix red as base */
+  text-transform: uppercase;
+  animation: classicGlow 5s infinite ease-in-out;
+}
+
+/* Classic Golden Glow Animation */
+@keyframes classicGlow {
+  0%, 100% {
+    color: #e50914;
+    text-shadow: 0 0 5px #e50914, 0 0 10px #b0060f;
+  }
+  50% {
+    color: #ffd700; /* gold effect */
+    text-shadow: 0 0 15px #ffd700, 0 0 40px #e50914;
+  }
+}
 
 
-      /* Forget Password Screen */
-      .forget_password_body {
-        font-family: Arial, sans-serif;
-        background-color: #ffffff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
-      
-      .forget_password {
-        width: 350px;
-        padding: 25px 20px;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-      }
-      
-      .forget_password h2 {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      
-      .forget_password p {
-        font-size: 14px;
-        margin-bottom: 15px;
-        color: #333;
-      }
-      
-      .forget_password #error {
-        color: red;
-        font-size: 14px;
-        margin-bottom: 10px;
-        text-align: center;
-      }
-      
-      .forget_password fieldset {
-        border: none;
-        padding: 0;
-        margin: 0;
-      }
-      
-      .forget_password label {
-        font-weight: bold;
-        display: block;
-        margin-bottom: 6px;
-      }
-      
-      .forget_password input[type="text"] {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-      }
-      
-      .forget_password button {
-        margin-top: 15px;
-        width: 100%;
-        padding: 10px;
-        background-color: #f5c518;
-        color: black;
-        border: none;
-        font-weight: bold;
-        font-size: 14px;
-        border-radius: 20px;
-        cursor: pointer;
-      }
-      
-      .forget_password button:hover {
-        background-color: #e3b30c;
-      }
-      
-      .reset_body{
-        font-family:Arial;
-        background-color:#ffff;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        height:100vh;
-      }
 
-      .reset{
-        width: 350px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        padding: 30px 25px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-        background-color: #fff;
-      }
+/* Sign In button */
+.signin-btn {
+  background: #e50914;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+}
 
-      .reset fieldset{
-        border: none;
-      }
+.signin-btn:hover {
+  background: #b0060f;
+}
 
-      .reset legend {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
+/* Join Button */
+.shop-btn {
+  background: #e50914;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.shop-btn:hover {
+  background: #b0060f;
+}
 
+/* Hero Section */
+.hero-form {
+  margin: 25px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-      .profile_body {
-        font-family: Arial, sans-serif;
-        background-color: #fafafa;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
-      
-      .profile_container {
-        width: 350px;
-        padding: 25px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        background: white;
-        box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      }
-      
-      .profile_container h2 {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      
-      .profile_fields label {
-        font-weight: bold;
-        display: block;
-        margin-top: 10px;
-      }
-      
-      .profile_fields input {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-      }
-      
-      #toggleBtn {
-        width: 100%;
-        padding: 10px;
-        background-color: #f5c518;
-        color: black;
-        font-weight: bold;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
-      }
-      
-      #toggleBtn:hover {
-        background-color: #e3b30c;
-      }
+.hero-form input {
+  padding: 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 30px 0 0 30px;
+  outline: none;
+  width: 320px;
+}
 
-      .profile_picture_section {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      
-      .profile_picture_section img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 2px solid #ccc;
-        margin-bottom: 10px;
-      }
-      
-      .profile_picture_section input[type="file"] {
-        display: block;
-        margin: 0 auto;
-      }
-      #uploadPic {
-        display: none;
-      }
+.hero-form .join-btn {
+  background: #e50914;
+  color: white;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 0 30px 30px 0;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-      /* landing page */
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #fff8e1;
-        color: #333;
-      }
-  
-       nav {
-        background-color: #f5c518;
-        padding: 15px 30px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-  
-      nav .logo a {
-        font-weight: bold;
-        font-size: 24px;
-        text-decoration: none;
-        color: black;
-      }
-    
-    
-  
-      nav .menu a {
-        margin-left: 20px;
-        text-decoration: none;
-        color: black;
-        font-weight: bold;
-      } 
+.hero-form .join-btn:hover {
+  background: #b0060f;
+}
+/* Paragraphs */
+p {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ddd;
+}
+.tagline {
+  font-family: 'Cinzel', serif;   /* makes it cinematic */
+  font-size: 28px;                /* change size */
+  font-weight: bold;
+  color: #f9f7f7;                 /* Netflix red */
+  margin-bottom: 20px;
+  text-transform: uppercase;      /* optional: ALL CAPS */
+  letter-spacing: 2px;            /* spacing between letters */
+}
+/* Collaboration Section */
+.collab-section {
+  text-align: center;
+  margin: 80px 0;
+}
 
+.collab-section h2 {
+  font-size: 30px;
+  margin-bottom: 40px;
+  font-family: 'Cinzel', serif;
+  color: #ffffff;   /* Netflix red */
+  letter-spacing: 1px;
+}
 
-  
-      .banner {
-        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl9BcgXCBK15cXryD_jOe-XtQ86nZC0m2EfQ&s'); 
-        background-size: cover;
-        background-position: center;
-        padding: 80px 20px;
-        text-align: center;
-        color: white;
-      }
-  
-      .banner h1 {
-        font-size: 48px;
-        margin-bottom: 10px;
-      }
-  
-      .banner p {
-        font-size: 22px;
-        margin-bottom: 30px;
-      }
-  
-      .search-box {
-        margin: 0 auto;
-        max-width: 600px;
-        display: flex;
-      }
-  
-      .search-box input {
-        flex: 1;
-        padding: 12px;
-        border: none;
-        font-size: 18px;
-        border-radius: 30px 0 0 30px;
-        outline: none;
-      }
-  
-      .search-box button {
-        padding: 12px 20px;
-        border: none;
-        background-color: #f5c518;
-        color: black;
-        font-weight: bold;
-        border-radius: 0 30px 30px 0;
-        cursor: pointer;
-        font-size: 18px;
-      }
-      .search-box button:hover{
-        padding: 12px 20px;
-        border: none;
-        background-color: #907d37;
-        color: black;
-        font-weight: bold;
-        border-radius: 0 30px 30px 0;
-        cursor: pointer;
-        font-size: 18px;
-      }
-  
-      .trending-section {
-        margin: 50px 20px;
-      }
-  
-      .trending-section h2 {
-        font-size: 28px;
-        margin-bottom: 20px;
-        color: #444;
-      }
-  
-      .movie-slider {
-        display: flex;
-        overflow-x: auto;
-        gap: 20px;
-        padding-bottom: 10px;
-      }
-  
-  
-      .movie-card {
-        width: 200px;
-        height: 350px;
-        background: #fff;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        flex-shrink: 0;
-        display: flex;
-        flex-direction: column;
-        transition: transform 0.3s ease;
-        cursor: pointer;
-      }
-      
-      .movie-card img {
-        width: 100%;
-        height: 100%; 
-        object-fit: cover; 
-        display: block;
-      }
-      
-      .movie-image-wrapper {
-        width: 100%;
-        height: 260px; 
-        overflow: hidden;
-      }
-      
-      .movie-card p {
-        flex: 10;
-        padding: 10px;
-        font-weight: bold;
-        font-size: 16px;
-        text-align: center;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-      
-      .movie-card:hover {
-        transform: scale(1.05);
-      }
-      
-      .movie-image-wrapper img:hover {
-        transform: scale(1.1);
-        transition: transform 0.3s ease;
-      }
-      
+/* Logos container */
+.collab-logos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
 
+/* Each logo + text */
+.logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-      /* movie details */
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #fff8e1;
-        color: #333;
-      }
-      
-      .movie-header {
-        display: flex;
-        background-color: black; 
-        color: white;
-        padding: 40px;
-        gap: 30px;
-        border-radius:0.5%;
-      }
-  
-      .poster img {
-        width: 250px;
-        height: 375px;
-        object-fit: cover;
-        border-radius: 10px;
-      }
-  
-      .movie-info {
-        flex: 1;
-      }
-  
-      .movie-info h1 {
-        padding-top: 20%; 
-        font-size: 36px;
-        margin: 0;
-      }
-  
-      .sub-info {
-        margin: 10px 0;
-        font-size: 16px;
-        color: #ccc;
-      }
-  
-      .user-score {
-        margin-top: 20px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-  
-      .circle-score {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: #4caf50;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-        font-size: 18px;
-      }
-  
-      .overview-section {
-        padding: 30px;
-      }
-  
-      .overview-section h2 {
-        font-size: 28px;
-        margin-bottom: 10px;
-      }
-  
-      .overview-section p {
-        font-size: 18px;
-        color: #555;
-      }
-  
-      .main-content {
-        display: flex;
-        padding: 30px;
-        gap: 30px;
-      }
-  
-      .left-content {
-        flex: 3;
-      }
-  
-      .right-sidebar {
-        flex: 1;
-        background: #ffffff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      }
-  
-      .sidebar-item {
-        margin-bottom: 20px;
-      }
-  
-      .sidebar-item h4 {
-        margin: 0 0 5px;
-        font-size: 16px;
-        color: #888;
-      }
-  
-      .sidebar-item p {
-        margin: 0;
-        font-size: 18px;
-        font-weight: bold;
-      }
-  
-      .cast-section {
-        margin-top: 30px;
-      }
-  
-      .cast-section h2 {
-        font-size: 24px;
-        margin-bottom: 15px;
-      }
-  
-      .cast-cards {
-        display: flex;
-        overflow-x: auto;
-        gap: 15px;
-      }
-  
-      .cast-card {
-        min-width: 120px;
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        text-align: center;
-        padding: 10px;
-      }
-  
-      .cast-card img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 8px;
-      }
-  
-      .cast-card p {
-        margin: 5px 0;
-        font-size: 14px;
-      }
-  
-      .review-section {
-        margin-top: 30px;
-      }
-  
-      .review-box {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 20px;
-        box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      }
-  
-      .review-box h4 {
-        margin-top: 0;
-      }
+.logo-item img {
+  height: 50px;               /* control size */
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s, filter 0.3s;
+}
 
-      .trivia_body {
-        font-family: Arial;
-        background-color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
-      
-      .trivia_container {
-        width: 350px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        padding: 30px 25px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-        background-color: #fff;
-      }
-      
-      .trivia_container legend {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
-        text-align: center;
-      }
-      
-      .trivia_category {
-        margin-bottom: 20px;
-      }
-      
-      .trivia_category h3 {
-        font-size: 18px;
-        margin-bottom: 10px;
-        color: #444;
-      }
-      
-      .trivia_category ul {
-        padding-left: 18px;
-        font-size: 14px;
-        color: #555;
-      }
-      
-      .trivia_form label {
-        font-size: 14px;
-        font-weight: bold;
-        display: block;
-        margin-bottom: 5px;
-      }
-      
-      .trivia_form input[type="text"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-      
-      .trivia_form button {
-        width: 100%;
-        background-color: #f5c518;
-        color: black;
-        padding: 10px;
-        border: none;
-        font-weight: bold;
-        font-size: 14px;
-        border-radius: 20px;
-        cursor: pointer;
-      }
-      
-      .trivia_form button:hover {
-        background-color: #e3b30c;
-      }
+.logo-item img:hover {
+  transform: scale(1.2);      /* zoom effect */
+  filter: brightness(1.2);    /* slight glow */
+}
 
-      
+.logo-item p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: white;               /* change to black if your bg is light */
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
 
-      
-      
+/* Movie Slider Section */
+.movie-slider {
+  width: 300px; /* Adjust as needed */
+  height: 400px; /* Adjust as needed */
+  margin: 40px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 500%; /* Adjust based on the number of slides */
+  height: 100%;
+  white-space: nowrap;
+}
+
+.slide {
+  width: 300px; /* Adjust as needed */
+  height: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slider-button.prev {
+  left: 10px;
+}
+
+.slider-button.next {
+  right: 10px;
+}
