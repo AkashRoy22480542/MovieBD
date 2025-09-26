@@ -1,8 +1,8 @@
 <?php
-$host = "sql12.freesqldatabase.com";
-$dbname = "sql12781551";
-$dbuser = "sql12781551";
-$dbpass = "bLxVR84MU2";
+$host = "localhost";
+$dbname = "moviedb";
+$dbuser = "root";
+$dbpass = "";
 
 function getConnection() {
     global $host, $dbname, $dbuser, $dbpass;

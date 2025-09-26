@@ -1,0 +1,61 @@
+.navbar {
+        background-color: #dc2626;
+        padding: 15px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: Arial, sans-serif;
+      }
+      
+      .navbar .logo a {
+        font-weight: bold;
+        font-size: 24px;
+        text-decoration: none;
+        color: black;
+      }
+      
+      .menu {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      
+      .menu a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        padding: 8px 12px;
+        border-radius: 4px;
+      }
+      
+      .dropdown {
+        position: relative;
+      }
+      
+      .dropbtn {
+        cursor: pointer;
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 110%;
+        right: 0;
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        border-radius: 4px;
+        z-index: 1000;
+      }
+      
+      .dropdown-content a {
+        display: block;
+        padding: 10px 16px;
+        text-decoration: none;
+        color: black;
+        font-weight: normal;
+      }
+      
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }

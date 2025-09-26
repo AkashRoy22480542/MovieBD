@@ -1,255 +1,520 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Playfair+Display:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@400;500&display=swap');
+/* Login page styles - from View/login.php */
+.auth-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
-/* Background */
+.auth-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h1 {
+    color: #dc2626;
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.auth-header p {
+    color: #666;
+    font-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #dc2626;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #9ca3af;
+}
+
+.auth-button {
+    width: 100%;
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.auth-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+}
+
+.auth-button:active {
+    transform: translateY(0);
+}
+
+.auth-link {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.auth-link a {
+    color: #dc2626;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    background: rgba(220, 38, 38, 0.1);
+    border: 1px solid rgba(220, 38, 38, 0.3);
+    color: #dc2626;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+    display: none;
+}
+
+.success-message {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: #059669;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+    display: none;
+}
+
+.auth-page .navbar {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.auth-page .navbar .logo a {
+    color: white;
+}
+
+.auth-page .navbar .menu a {
+    color: white;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.forgot-password a {
+    color: #dc2626;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Signup page specific styles - from View/signup.php */
+.auth-card.signup-card {
+    max-width: 450px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.password-strength {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.password-strength.weak {
+    color: #dc2626;
+}
+
+.password-strength.medium {
+    color: #f59e0b;
+}
+
+.password-strength.strong {
+    color: #10b981;
+}
+
+.auth-button:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 2px;
+}
+
+.checkbox-group label {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.checkbox-group label a {
+    color: #dc2626;
+    text-decoration: none;
+}
+
+.checkbox-group label a:hover {
+    text-decoration: underline;
+}
+
+/* Profile page styles - from View/profile.php */
+.profile_body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile_container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    margin: 50px auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile_container h2 {
+    color: #dc2626;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.profile_picture_section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile_picture_section img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 60px;
+    border: 3px solid #dc2626;
+    cursor: pointer;
+}
+
+.profile_fields {
+    margin-bottom: 30px;
+}
+
+.profile_fields label {
+    display: block;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.profile_fields input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.profile_fields input[readonly] {
+    background-color: #f9fafb;
+    color: #6b7280;
+}
+
+.profile_fields input:focus:not([readonly]) {
+    outline: none;
+    border-color: #dc2626;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.profile_container button {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+}
+
+.profile_container button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+}
+
+.profile_container button:active {
+    transform: translateY(0);
+}
+
+.profile_container #error {
+    color: #dc2626;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(220, 38, 38, 0.1);
+    border-radius: 8px;
+    display: none;
+}
+
+.profile_body .navbar {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.profile_body .navbar .logo a {
+    color: white;
+}
+
+.profile_body .navbar .menu a {
+    color: white;
+}
+
+.back-button {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Landing page styles */
 body {
   margin: 0;
-  padding: 0;
   font-family: Arial, sans-serif;
-  text-align: center;
-  background: url("image/back-ground.jpg") no-repeat center center fixed;
+  background-color: #fff8e1;
+  color: #333;
+}
+
+.banner {
+  background-image: url('https://m.media-amazon.com/images/S/pv-target-images/3a2abb3359c0da3d1541ddb343bbd3c35a43f76b799a8e39783d345f557bba07._SX1080_FMjpg_.jpg');
   background-size: cover;
-  color: white;
-}
-
-/* Navbar */
-.navbar {
-  background: rgba(0, 0, 0, 0.85);  /* semi-transparent black */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 50px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-/* Logo */
-.logo {
-  font-family: 'Cinzel', serif;
-  font-size: 28px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: #e50914; /* Netflix red */
-  cursor: pointer;
-
-}
-
-/* Menu */
-.menu {
-  display: flex;
-  gap: 40px;
-}
-
-.menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.menu a:hover {
-  color: #e50914;  /* Red on hover */
-}
-
-/* Classic Cinematic Logo */
-.logo {
-  font-family: 'Cinzel', serif;
-  font-size: 42px;
-  font-weight: bold;
-  letter-spacing: 4px;
-  color: #e50914;   /* Netflix red as base */
-  text-transform: uppercase;
-  animation: classicGlow 5s infinite ease-in-out;
-}
-
-/* Classic Golden Glow Animation */
-@keyframes classicGlow {
-  0%, 100% {
-    color: #e50914;
-    text-shadow: 0 0 5px #e50914, 0 0 10px #b0060f;
-  }
-  50% {
-    color: #ffd700; /* gold effect */
-    text-shadow: 0 0 15px #ffd700, 0 0 40px #e50914;
-  }
-}
-
-
-
-/* Sign In button */
-.signin-btn {
-  background: #e50914;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.signin-btn:hover {
-  background: #b0060f;
-}
-
-/* Join Button */
-.shop-btn {
-  background: #e50914;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: bold;
-  text-decoration: none;
-}
-.shop-btn:hover {
-  background: #b0060f;
-}
-
-/* Hero Section */
-.hero-form {
-  margin: 25px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-form input {
-  padding: 16px;
-  font-size: 14px;
-  border: none;
-  border-radius: 30px 0 0 30px;
-  outline: none;
-  width: 320px;
-}
-
-.hero-form .join-btn {
-  background: #e50914;
-  color: white;
-  padding: 14px 30px;
-  border: none;
-  border-radius: 0 30px 30px 0;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.hero-form .join-btn:hover {
-  background: #b0060f;
-}
-/* Paragraphs */
-p {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #ddd;
-}
-.tagline {
-  font-family: 'Cinzel', serif;   /* makes it cinematic */
-  font-size: 28px;                /* change size */
-  font-weight: bold;
-  color: #f9f7f7;                 /* Netflix red */
-  margin-bottom: 20px;
-  text-transform: uppercase;      /* optional: ALL CAPS */
-  letter-spacing: 2px;            /* spacing between letters */
-}
-/* Collaboration Section */
-.collab-section {
+  background-position: center;
+  padding: 80px 20px;
   text-align: center;
-  margin: 80px 0;
+  color: white;
 }
 
-.collab-section h2 {
-  font-size: 30px;
-  margin-bottom: 40px;
-  font-family: 'Cinzel', serif;
-  color: #ffffff;   /* Netflix red */
-  letter-spacing: 1px;
+.banner h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
 }
 
-/* Logos container */
-.collab-logos {
+.banner p {
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+
+.search-box {
+  margin: 0 auto;
+  max-width: 600px;
+  display: block;
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 15px 50px 15px 20px;
+  border: 2px solid #dc2626;
+  font-size: 18px;
+  border-radius: 30px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.search-box input:focus {
+  border-color: #b91c1c;
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 1);
+}
+
+.search-box input::placeholder {
+  color: #666;
+  font-weight: 300;
+}
+
+.search-box button {
+  display: none;
+}
+
+.trending-section {
+  margin: 50px 20px;
+}
+
+.trending-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.movie-slider {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 50px;
+  overflow-x: auto;
+  gap: 20px;
+  padding-bottom: 10px;
 }
 
-/* Each logo + text */
-.logo-item {
+.movie-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-card {
+  width: 200px;
+  height: 350px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.logo-item img {
-  height: 50px;               /* control size */
-  object-fit: contain;
+  transition: transform 0.3s ease;
   cursor: pointer;
-  transition: transform 0.3s, filter 0.3s;
 }
 
-.logo-item img:hover {
-  transform: scale(1.2);      /* zoom effect */
-  filter: brightness(1.2);    /* slight glow */
+.movie-card img {
+  width: 100%;
+  height: 100%; 
+  object-fit: cover; 
+  display: block;
 }
 
-.logo-item p {
-  margin-top: 10px;
-  font-size: 16px;
-  color: white;               /* change to black if your bg is light */
-  font-weight: bold;
-  font-family: Arial, sans-serif;
-}
-
-/* Movie Slider Section */
-.movie-slider {
-  width: 300px; /* Adjust as needed */
-  height: 400px; /* Adjust as needed */
-  margin: 40px auto;
-  position: relative;
+.movie-image-wrapper {
+  width: 100%;
+  height: 260px; 
   overflow: hidden;
 }
 
-.slider-container {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: 500%; /* Adjust based on the number of slides */
-  height: 100%;
+.movie-card p {
+  flex: 10;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.slide {
-  width: 300px; /* Adjust as needed */
-  height: 100%;
-  box-sizing: border-box;
-  flex-shrink: 0;
-  display: inline-block;
+.movie-card:hover {
+  transform: scale(1.05);
 }
 
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
+.movie-image-wrapper img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 
-.slider-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+/* Footer styles */
+footer {
+  background-color: #1a1a1a;
   color: white;
-  border: none;
-  padding: 10px 20px;
+  padding: 40px 20px;
+  margin-top: 50px;
+}
+
+footer div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+footer h4 {
+  color: #dc2626;
+  margin-bottom: 10px;
+}
+
+footer a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #dc2626;
+}
+
+footer p {
+  color: #ccc;
+  margin: 5px 0;
   cursor: pointer;
-  z-index: 10;
 }
 
-.slider-button.prev {
-  left: 10px;
-}
-
-.slider-button.next {
-  right: 10px;
+footer p:hover {
+  color: #dc2626;
 }
